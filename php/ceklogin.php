@@ -15,16 +15,13 @@ if (isset( $_POST['nama']) && isset( $_POST['word'])) {
         //session_register($word);
         session_start();
         $_SESSION['username'] = $nama;
-        $login->redirek('../index.php');
-        //include_once './form.php';
-        echo 'fak';
-        die();
     } else {
         echo "plis.";
         echo "<script> alert('plis', 2000)</script>";
-        $login->redirek('../index.php');
-        //header('location: ./login.php');
-        die();
     }
+    $login->redirek('../index.php');
+    //include_once './form.php';
+    echo 'fak';
+    die();
 }
 ?>

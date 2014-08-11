@@ -4,7 +4,7 @@ require_once './error_handler.php';
 require_once './login.class.php';
 
 session_start();
-$_SESSION['ngapain'] = "bandingkan";
+$_SESSION['ngapain'] = "rekap";
 $login = new Login();
 
 $login->redirek('../index.php');

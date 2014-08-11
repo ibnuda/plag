@@ -54,12 +54,12 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
-    if (!isset($_SESSION['ngapain'])) {
-        include_once 'php/form.php';
-    } else if ($_SESSION['ngapain'] === "bandingkan") {
-        include_once 'php/bandingkan.php';
-    } elseif ( $_SESSION['ngapain'] === "rekap") {
-        include_once 'php/rekap.php';
+    if ($_SESSION['ngapain'] === "bandingkan") {
+        include 'php/okefix.php';
+    } else if ($_SESSION['ngapain'] === "rekap") {
+        include 'php/rekap_2.php';
+    } else if (!isset($_SESSION['ngapain'])) {
+        include 'php/form.php';
     }
 } else {
     include_once 'php/login.php';
