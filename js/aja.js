@@ -25,7 +25,7 @@ function buatObjekRekuesXmlHttp() {
 }
 
 
-function bandingkanKalimat(kalimat) {
+function lelele(kalimat) {
     if (xmlHttp) {
         isianKalimat.push(kalimat);
         try {
