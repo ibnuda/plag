@@ -30,7 +30,15 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
-    <script type="txt/javascript" src="./js/aja.js"></script>
+    <script type="text/javascript" src="js/aja.js"></script>
+    <!--
+    <script type="text/javascript" src="js/asdf.js"></script>
+    <script type="text/javascript" src="./js/tableExport.js"></script>
+    <script type="text/javascript" src="./js/jquery.base64.js"></script>
+    <script type="text/javascript" src="./js/jspdf/jspdf.js"></script>
+    <script type="text/javascript" src="./js/jspdf/libs/base64.js"></script>
+    <script type="text/javascript" src="./js/jspdf/libs/sprintf.js"></script>
+    -->
 
 </head>
 <body>
@@ -46,7 +54,13 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
-    include_once 'php/form.php';
+    if (!isset($_SESSION['ngapain'])) {
+        include_once 'php/form.php';
+    } else if ($_SESSION['ngapain'] === "bandingkan") {
+        include_once 'php/bandingkan.php';
+    } elseif ( $_SESSION['ngapain'] === "rekap") {
+        include_once 'php/rekap.php';
+    }
 } else {
     include_once 'php/login.php';
 }

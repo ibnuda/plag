@@ -81,126 +81,84 @@
                 </nav-->
                 <div class="row clearfix">
                     <div class="col-md-4 column">
-                        <form role="form" name="formLogin" method="post" action="./php/logout.php">
-                            <button type="submit" class="btn btn-default">Logout</button>
+                        <form action="./php/bandingkan.php">
+                            <button type="submit" class="btn center-block">bandingkan</button> 
                         </form>
                     </div>
                     <div class="col-md-4 column">
+                        <form action="./php/rekap.php">
+                            <button type="submit" class="btn center-block">rekap</button> 
+                        </form>
                     </div>
                     <div class="col-md-4 column">
+                        <form action="./php/logout.php">
+                            <button type="submit" class="btn center-block">logout</button> 
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 column">
+            <!--div class="col-md-12 column">
+                <div id="progress" class="progress">
+                </div>
                 <div class="row clearfix">
-                    <form role="form" name="formUnggahBanding" method="post" action="./php/unggah.php">
-                        <div class="form-group">
-                            <p id="list" class="help-block">
-                                Pilih berkas yang akan dicocokkan dalam bentuk plaintext / .txt.
-                            </p>
-                            <label for="exampleInputFile">Berkas</label><input id="exampleInputFile" type="file" />
-                            <!--/div--> 
-                            <button type="submit" class="btn" onclick="$('#initabel').tableExport(type:'pdf',escape,'false'})">cetak</button> 
-                            <script type="text/javascript">
-                            var isi = "";
-                            var arrayKalimat = new Array();
-                            document.getElementById('exampleInputFile').addEventListener('change', readFile, false);
-
-                                function readFile (evt) {
-                                    var files = evt.target.files;
-                                    var file = files[0];           
-                                    var reader = new FileReader();
+                    <div class="col-md-8 column">
+                        <div class="row clearfix">
+                            <form role="form" name="formUnggahBanding" method="post" action="">
+                                <div class="form-group">
+                                    <p id="list" class="help-block">
+                                        Pilih berkas yang akan dicocokkan dalam bentuk plaintext / .txt.
+                                    </p>
+                                    <label for="exampleInputFile">Berkas</label><input id="exampleInputFile" type="file" />
+                                    <button type="submit" class="btn" onclick="wah()">cetak</button> 
+                                    <script type="text/javascript">
                                     var isi = "";
-                                    reader.onload = function() {
-                                        isi = this.result;
-                                        ngahaha(isi);
-                                    };
-                                    reader.readAsText(file);
-                                }
+                                    var arrayKalimat = new Array();
+                                    document.getElementById('exampleInputFile').addEventListener('change', bacaBerkas, false);
+                                    var namaBerkas = document.getElementById('exampleInputFile').value;
 
-                            function ngahaha(isi){
-                                var arrayKalimat = isi.match(/\(?[0-9A-Z][^\.\?\!]+[\.!\?]\)?/g);
-                                document.getElementById("are").innerHTML = "";
-                                for ( var i = 0, len = arrayKalimat.length; i < len; i++){
-                                    document.getElementById("list").innerHTML =  'menghitung ' + (i + 1) + ' dari ' + arrayKalimat.length + ' kalimat';
-                                    lelele(arrayKalimat[i]);
-                                    document.getElementById("progress").innerHTML = 
-                                        '<div class="progress-bar" role="progressbar" aria-valuenow="' + 
-                                        ((i+1) * 100 / len) + '" aria-valuemin="0" aria-valuemax="100" style="width: ' +
-                                        ((i+1) * 100 / len) + '%;"> ' + ((i+1) * 100 / len) + '% </div>';
-                                }
-                            }
-                            var xmlHttp = buatObjekRekuesXmlHttp();
-                            var isianKalimat = new Array();
-
-                            function buatObjekRekuesXmlHttp() {
-                                var xmlHttp;
-                                try {
-                                    xmlHttp = new XMLHttpRequest();
-                                } catch (e) {
-                                    var versiXmlHttp = new Array("MSXML2.XMLHTTP.6.0",
-                                                                 "MSXML2.XMLHTTP.5.0",
-                                                                 "MSXML2.XMLHTTP.4.0",
-                                                                 "MSXML2.XMLHTTP.3.0",
-                                                                 "Microsoft.XMLHTTP");
-                                    for (var i = 0, len = versiXmlHttp.length; i < len; i++) {
-                                        try {
-                                            xmlHttp = new ActiveXObject(versiXmlHttp[i]);
-                                        } catch (e) {  }
+                                    function bacaBerkas (evt) {
+                                        var files = evt.target.files;
+                                        var file = files[0];           
+                                        var reader = new FileReader();
+                                        var isi = "";
+                                        reader.onload = function() {
+                                            isi = this.result;
+                                            ngahaha(isi);
+                                        };
+                                        reader.readAsText(file);
                                     }
-                                }
-                                if (!xmlHttp) {
-                                    alert("tak bisa mbuat objek. pakai browser yang lebih baru.");
-                                } else {
-                                    return xmlHttp;
-                                }
-                            }
 
-
-                            function lelele(kalimat) {
-                                if (xmlHttp) {
-                                    isianKalimat.push(kalimat);
-                                    try {
-                                        var kalimatCocok = isianKalimat.shift();
-                                        var yangDicari = "yangDicari=" + kalimatCocok;
-                                        xmlHttp.open("GET", "php/kePHP.php?" + yangDicari, false);
-                                        xmlHttp.onreadystatechange = cobaDapatkanPesan;
-                                        xmlHttp.send(null);
-                                    } catch (e) { }
-                                }
-                            }
-
-                            function tempelinDiLaman($pesan) {
-                                bagianDiLaman = document.getElementById("are");
-                                bagianDiLaman.innerHTML += "" + $pesan + "";
-                            }
-
-                            function tempelinErrorDiLaman($pesan) {
-                                tempelinDiLaman("gagal. karena " + $pesan);
-                            }
-
-                            function cobaDapatkanPesan() {
-                                try {
-                                    ambilPesan();
-                                } catch (e) {
-                                    tempelinErrorDiLaman(e.toString());
-                                }
-                            }
-                            function ambilPesan() {
-                                var response = xmlHttp.responseText;
-                                if (response.indexOf("ERRNO") >= 0
-                                    || response.indexOf("error") >= 0
-                                    //|| response.length == 0) {
-                                    ){
-                                    throw(response.length == 0 ? "server error." : response);
-                                }
-                                tempelinDiLaman(response);
-                                //setTimeout("lelele();", 5000);
-                            }
-                            </script>
+                                    function ngahaha(isi){
+                                        var arrayKalimat = isi.match(/\(?[0-9A-Z][^\.\?\!]+[\.!\?]\)?/g);
+                                        document.getElementById("are").innerHTML = "";
+                                        for ( var i = 0, len = arrayKalimat.length; i < len; i++){
+                                            //document.getElementById("list").innerHTML =  'menghitung ' + (i + 1) + ' dari ' + arrayKalimat.length + ' kalimat';
+                                            lelele(arrayKalimat[i]);
+                                            document.getElementById('list').innerHTML += namaBerkas;
+                                            document.getElementById("progress").innerHTML = 
+                                                '<div class="progress-bar" role="progressbar" aria-valuenow="' + 
+                                                ((i+1) * 100 / len) + '" aria-valuemin="0" aria-valuemax="100" style="width: ' +
+                                                ((i+1) * 100 / len) + '%;"> ' + ((i+1) * 100 / len) + '% </div>';
+                                        }
+                                    }
+                                    </script>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                    <div id="progress" class="progress">
+                    </div>
+                    <div class="col-md-4 column">
+                        <div class="row clearfix">
+                            <div class="col-md-6 column">
+                                <div class="row clearfix"></div>
+                            </div>
+                            <div class="col-md-6 column">
+                                <div class="row clearfix">
+                                    <form role="form" name="formLogout" method="post" action="./php/logout.php">
+                                        <button type="submit" class="btn btn-default">Logout</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <table class="table" id="initabel">
                         <thead> 
@@ -209,9 +167,8 @@
                         <tbody id="are">
                         </tbody>
                     </table>
-
                 </div>
-            </div>
+            </div-->
         </div>
     </div>
 <!--/body>

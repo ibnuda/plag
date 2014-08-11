@@ -9,41 +9,45 @@ require_once './error_handler.php';
  */
 class KePHP
 {
-	private $mMysqli;
+	private $mysqli;
 	
     public function __construct()
     {
-        $this->mMysqli = new mysqli(host, user, pass, debe);
+        $this->mysqli = new mysqli(host, user, pass, debe);
     }
     function __destruct()
     {
-        $this->mMysqli->close();
+        $this->mysqli->close();
     }
 
     public function cekKeDB($kalimat)
     {
-        $kalimat = $this->mMysqli->real_escape_string($kalimat);
+        $kalimat = $this->mysqli->real_escape_string($kalimat);
         if ($kalimat == null) {
             return 0;
         }
         $asdf = 'select id_skrip, ju_skrip from skripsi where match(is_skrip) against (\'"' . $kalimat .
                 '" @2 \' in natural language mode)';
-        $kueri = $this->mMysqli->query($asdf);
-        if ($this->mMysqli->affected_rows > 0) {
+        $kueri = $this->mysqli->query($asdf);
+        if ($this->mysqli->affected_rows > 0) {
             $baris = $kueri->fetch_array(MYSQLI_ASSOC);
             if (strlen($kalimat) >= 60){
                 $kalimat = substr($kalimat, 0, 60);
                 $kalimat = $kalimat . '...';
             }
-            return '<tr class="warning"><td>' . $kalimat . '</td><td>' . $baris['id_skrip'] . '</td><td>' . $baris['ju_skrip'] . '</td></tr>';
+            return '<tr class="danger"><td>' . $kalimat . '</td><td>' . $baris['id_skrip'] . '</td><td>' . $baris['ju_skrip'] . '</td></tr>';
         } else {
-            return "<tr class='warning'><td>" . $kalimat . "</td><td>null</td><td>null</td></tr>";
+            return "<tr class='active'><td>" . $kalimat . "</td><td>null</td><td>null</td></tr>";
         } 
     }
-	public function ngeprin($a, $b){
-		$kek = $this->mMysqli->query('select id_skrip, ju_skrip from skripsi id_skrip between ' . $a . ' and ' . $b .';');
-		$heem = $kek->fetch_array();
-		return $heem['id_skrip'] . $heem['ju_skrip'];
-	}
+    public function simpanKeDB($teks)
+    {
+        $teks = $this->mysqli->real_escape_string($teks);
+        if ($teks === null) {
+            exit();
+        }
+        $kueri = 'insert into carian (
+    }
+    
 }
 

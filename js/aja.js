@@ -38,6 +38,19 @@ function lelele(kalimat) {
     }
 }
 
+function simpandb(teks) {
+    if (xmlHttp) {
+        try {
+            var simpanan = teks;
+            var penyimpan = "simpanan=" + simpanan;
+            xmlHttp.open("POST", "php/simpanKeDB.php?" + penyimpan, false);
+            xmlHttp.send(null);
+        } catch (e) {
+            /* handle error */
+        }
+    }
+}
+
 function tempelinDiLaman($pesan) {
     bagianDiLaman = document.getElementById("are");
     bagianDiLaman.innerHTML += "" + $pesan + "";
@@ -66,3 +79,7 @@ function ambilPesan() {
 	//setTimeout("lelele();", 5000);
 }
 
+function wah() {
+    var namaBerkas = document.getElementById('exampleInputFile').value();
+    document.getElementById('list').innerHTML = namaBerkas;
+}
