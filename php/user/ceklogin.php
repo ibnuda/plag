@@ -1,6 +1,6 @@
 <?php
-require_once './config.php';
-require_once './error_handler.php';
+require_once '../conf/config.php';
+require_once '../conf/error_handler.php';
 require_once './login.class.php';
 
 $login = new Login();
@@ -19,7 +19,7 @@ if (isset( $_POST['nama']) && isset( $_POST['word'])) {
         echo "plis.";
         echo "<script> alert('plis', 2000)</script>";
     }
-    $login->redirek('../index.php');
+    $login->redirek('../../index.php');
     //include_once './form.php';
     echo 'fak';
     die();

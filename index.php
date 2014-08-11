@@ -31,23 +31,77 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/aja.js"></script>
-    <!--
-    <script type="text/javascript" src="js/asdf.js"></script>
-    <script type="text/javascript" src="./js/tableExport.js"></script>
-    <script type="text/javascript" src="./js/jquery.base64.js"></script>
-    <script type="text/javascript" src="./js/jspdf/jspdf.js"></script>
-    <script type="text/javascript" src="./js/jspdf/libs/base64.js"></script>
-    <script type="text/javascript" src="./js/jspdf/libs/sprintf.js"></script>
-    -->
 
 </head>
 <body>
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<h1 class="text-center text-danger">
-				Plagiasi Skripsi
-			</h1>
+			<nav class="navbar navbar-default navbar-static-top" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">Link</a>
+						</li>
+						<li>
+							<a href="#">Link</a>
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Action</a>
+								</li>
+								<li>
+									<a href="#">Another action</a>
+								</li>
+								<li>
+									<a href="#">Something else here</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="#">Separated link</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="#">One more separated link</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input class="form-control" type="text" />
+						</div> <button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+                        <?php
+                        
+                        session_start();
+                        if (!isset( $_SESSION['username'])) {
+                            echo '
+                        <li>
+							<a href="./php/user/login.php">Login</a>
+						</li>
+						<li>
+							<a href="./php/user/daftar.php">Daftar</a>
+						</li>';
+                        } else {
+                            echo '<li>
+                                <a href="./php/user/logout.php">Logout</a>
+                        </li>';
+                        }
+                        ?>
+					</ul>
+				</div>
+				
+			</nav>
 		</div>
 	</div>
 </div>
@@ -55,14 +109,14 @@
 session_start();
 if (isset($_SESSION['username'])) {
     if ($_SESSION['ngapain'] === "bandingkan") {
-        include 'php/okefix.php';
+        include_once 'php/okefix.php';
     } else if ($_SESSION['ngapain'] === "rekap") {
-        include 'php/rekap_2.php';
+        include_once 'php/rekap_2.php';
     } else if (!isset($_SESSION['ngapain'])) {
-        include 'php/form.php';
+        include_once 'php/form.php';
     }
 } else {
-    include_once 'php/login.php';
+    include_once 'php/sedikit.php';
 }
 ?>
 </body>

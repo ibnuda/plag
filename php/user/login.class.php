@@ -1,7 +1,7 @@
 <?php
 
-require_once './config.php';
-require_once './error_handler.php';
+require_once '../conf/config.php';
+require_once '../conf/error_handler.php';
 
 /**
  * Class Login
@@ -18,7 +18,7 @@ class Login
 
     public function cekLogin($nama, $word)
     {
-        $kueri = 'select nama, word from user where nama="' . $nama .
+        $kueri = 'select nama, word from luser where nama="' . $nama .
                  '" and word="' . $word . '"';
 
         $hasil = $this->mMysqli->query($kueri);
