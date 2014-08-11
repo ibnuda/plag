@@ -38,8 +38,9 @@
     session_start();
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
-        echo 'ini /plag/php/pencocokan/direk';
+        echo 'ini /plag/php/lihat/direk';
     }
 ?>
 </body>
 </html>
+

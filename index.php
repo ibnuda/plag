@@ -37,6 +37,7 @@
 <?php
 session_start();
 include './panel.php';
+/*
 if (isset($_SESSION['username'])) {
     require_once '/plag/php/user/login.class.php';
     $login = new Login();
@@ -47,11 +48,13 @@ if (isset($_SESSION['username'])) {
         //include_once 'php/lihat/direk.php';
         $login->redirek('/plag/php/lihat/direk.php');
     } else if (!isset($_SESSION['ngapain'])) {
-        include_once 'php/sedikit.php';
+        include_once '/plag/php/sedikit.php';
     }
 } else {
-    include_once 'php/sedikit.php';
+    include_once '/plag/php/sedikit.php';
 }
+ */
+include_once './php/sedikit.php';
 ?>
 </body>
 </html>
