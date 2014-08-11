@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-unset($_SESSION['nama']);
+unset($_SESSION['username']);
 session_destroy();
 
 header('Location:../../index.php');

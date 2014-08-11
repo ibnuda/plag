@@ -91,7 +91,7 @@
                         </form>
                     </div>
                     <div class="col-md-4 column">
-                        <form action="./php/logout.php">
+                        <form action="/plag/php/user/logout.php">
                             <button type="submit" class="btn center-block">Logout</button> 
                         </form>
                     </div>
