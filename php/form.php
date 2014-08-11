@@ -82,17 +82,17 @@
                 <div class="row clearfix">
                     <div class="col-md-4 column">
                         <form action="./php/bandingkan.php">
-                            <button type="submit" class="btn center-block">bandingkan</button> 
+                            <button type="submit" class="btn center-block">Banding</button> 
                         </form>
                     </div>
                     <div class="col-md-4 column">
                         <form action="./php/rekap.php">
-                            <button type="submit" class="btn center-block">rekap</button> 
+                            <button type="submit" class="btn center-block">Rekap</button> 
                         </form>
                     </div>
                     <div class="col-md-4 column">
                         <form action="./php/logout.php">
-                            <button type="submit" class="btn center-block">logout</button> 
+                            <button type="submit" class="btn center-block">Logout</button> 
                         </form>
                     </div>
                 </div>

@@ -46,7 +46,7 @@ class KePHP
         if ($teks === null) {
             exit();
         }
-        $kueri = 'insert into carian (
+//        $kueri = 'insert into carian (
     }
     
 }

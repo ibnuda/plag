@@ -33,21 +33,8 @@ function lelele(kalimat) {
             var yangDicari = "yangDicari=" + kalimatCocok;
             xmlHttp.open("GET", "php/kePHP.php?" + yangDicari, false);
             xmlHttp.onreadystatechange = cobaDapatkanPesan;
-            xmlHttp.send(null);
+            xmlHttp.send();
         } catch (e) { }
-    }
-}
-
-function simpandb(teks) {
-    if (xmlHttp) {
-        try {
-            var simpanan = teks;
-            var penyimpan = "simpanan=" + simpanan;
-            xmlHttp.open("POST", "php/simpanKeDB.php?" + penyimpan, false);
-            xmlHttp.send(null);
-        } catch (e) {
-            /* handle error */
-        }
     }
 }
 
