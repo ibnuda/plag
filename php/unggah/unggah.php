@@ -1,14 +1,5 @@
-<?php
-
-include_once './unggah.class.php';
-
-$unggah = new Unggah();
-?>
-
-<div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<form role="form">
+		<div class="col-md-4 column">
+			<form role="form" action="./ahem.php" method="post" enctype="multipart/form-data">
 				<!--div class="form-group">
 					 <label for="exampleInputEmail1">Email address</label><input class="form-control" id="exampleInputEmail1" type="email" />
 				</div>
@@ -16,7 +7,7 @@ $unggah = new Unggah();
 					 <label for="exampleInputPassword1">Password</label><input class="form-control" id="exampleInputPassword1" type="password" />
 				</div-->
 				<div class="form-group">
-					 <label for="exampleInputFile">Unggah Berkas</label><input id="exampleInputFile" type="file" />
+					 <label for="berkasUnggahan">Unggah Berkas</label><input id="berkasUnggahan" name="berkasUnggahan" type="file" />
 					<p class="help-block">
                         Ukuran berkas maksimal 100kb.<br>
                         Jenis berkas yang didukung adalah plain text (.txt).<br>
@@ -27,6 +18,4 @@ $unggah = new Unggah();
                 </div--> 
                 <button type="submit" class="btn btn-default">Unggah</button>
 			</form>
-		</div>
-	</div>
-</div>
+        </div>

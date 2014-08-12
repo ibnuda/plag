@@ -35,17 +35,28 @@
 </head>
 <body>
 <?php
-    session_start();
-    include '../../panel.php';
-    if (isset( $_SESSION['username'])) {
-        include_once './unggah.php';
-        //echo 'ini /plag/php/unggah/direk';
-        include_once '/plag/php/unggah/unggah.class.php';
-    } else {
-        include '/plag/php/sedikit.php';
-    }
-
+session_start();
+include '../../panel.php';
 ?>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+            <div class="row clearfix">
+                <?php
+                    if (isset( $_SESSION['username'])) {
+                        include_once '/plag/php/unggah/unggah.class.php';
+                        include_once './unggah.php';
+                        include_once './lihatfolder.php';
+                        //echo 'ini /plag/php/unggah/direk';
+                    } else {
+                        include '/plag/php/sedikit.php';
+                    }
+
+                ?>
+            </div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
 
