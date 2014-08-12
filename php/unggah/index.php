@@ -8,4 +8,4 @@ if (!isset( $_SESSION['username'])) {
     $_SESSION['ngapain'] = "cocok";
     $login->redirek('/plag');
 }
-
+?>

@@ -38,8 +38,11 @@
     session_start();
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
-        echo 'ini /plag/php/unggah/direk';
+        include_once './unggah.php';
+        //echo 'ini /plag/php/unggah/direk';
         include_once '/plag/php/unggah/unggah.class.php';
+    } else {
+        include '/plag/php/sedikit.php';
     }
 
 ?>
