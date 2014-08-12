@@ -34,9 +34,15 @@ class Simpan
      * user siapa unggah berkas namanya apa.
      * sekaligus update 'jumlah_simpanan' di tabel luser.
      */
-    public function unggahBerkas($user, $berkas)
+    public function catatBerkasUser($user, $berkas, $ukuran)
     {
-        //$kueri = 'insert into simpanan values';
+        $username = $this->sanitasiParameter($user);
+        $kueri = 'insert into simpanan (na_user, na_file, uk_file, ta_file) values(' .
+                 '"' . $user . '", "' . $berkas .'", ' . $ukuran .', "' . date('Y-m-d H:i:s') .'");';
+        echo $kueri . '<br>';
+        $this->mysqli->query($kueri);
+        $kueri2 = 'update luser set simpanan=simpanan+1 where nama = "' . $user . '";';
+        $this->mysqli->query($kueri2);
     }
 
     /**

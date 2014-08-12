@@ -46,7 +46,7 @@ include '../../panel.php';
                     if (isset( $_SESSION['username'])) {
                         include_once '/plag/php/unggah/unggah.class.php';
                         include_once './unggah.php';
-                        include_once './lihatfolder.php';
+                        include_once '../lihat/lihatfolder.php';
                         //echo 'ini /plag/php/unggah/direk';
                     } else {
                         include '/plag/php/sedikit.php';

@@ -60,7 +60,8 @@ class Flu
             //echo 'berhasil upload';
             //echo 'ekstensi berkas adalah "' . $this->ambilEkstensi($berkas) . '"<br>';
             //echo 'nama berkas adalah "' . $this->ambilNamaberkas($berkas) . '"';
-            $this->setBerkasNama($username . '_' . $this->ambilNamaberkas($berkas) . '_' . $jumlah . '.txt');
+            $this->setBerkasNama($this->ambilNamaberkasTersimpan($username, $berkas, $jumlah));
+            //$this->setBerkasNama($username . '_' . $this->ambilNamaberkas($berkas) . '_' . $jumlah . '.txt');
             move_uploaded_file($berkas['tmp_name'],$this->destinasi.$this->berkas_nama); 
         }
     }
@@ -106,7 +107,8 @@ class Flu
     /**
      * menentukan namaberkas berkas.
      * $berkas merupakan berkas yang diperiksa.
-     * $kek merupakan kembalian dari nama berkas.
+     * $kek merupakan kembalian dari fungsi.
+     * tipe kembalian adalah string.
      */
     public function ambilNamaberkas($berkas)
     {
@@ -115,8 +117,31 @@ class Flu
         $kek = $nama['filename'];
         return $kek;
     }
-    
 
+    /**
+     * mengambil nama berkas yang tersimpan di folder unggahan.
+     */
+    public function ambilNamaberkasTersimpan($username, $berkas, $jumlah)
+    {
+        $kek = $username . '_' . $this->ambilNamaberkas($berkas) . '_' . $jumlah . '.txt';
+        echo $kek . '<br>';
+        return $kek;
+    }
+    
+    
+    /**
+     * menentukan ukuran berkas.
+     * $berkas merupakan berkas yang diperiksa,
+     * $kek merupakan kembalian dari fungsi ini.
+     * tipe kembalian adalah int;
+     */
+
+    public function ambilUkuranBerkas($berkas)
+    {
+        $kek = $berkas['size'];
+        return $kek;
+    }
+    
     public function hapusBerkas($berkas)
     {
         if (file_exist($berkas)) {
