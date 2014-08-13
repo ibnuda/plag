@@ -16,15 +16,32 @@ echo '
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">';
 if (isset( $_SESSION['username'])) {
+    $aktifUnggah;
+    $aktifCocok;
+    $aktifLihat;
+    switch ($_SESSION['ngapain']) {
+        case 'unggah':
+            $aktifUnggah = 'class="active"';
+            break;
+        case 'lihat':
+            $aktifLihat = 'class="active"';
+            break;
+        case 'cocok':
+            $aktifCocok = 'class="active"';
+            break;
+        default:
+            
+            break;
+    }
     echo '
         <ul class="nav navbar-nav">
-        <li class="active">
-        <a href="/plag/php/pencocokan/direk.php">Pencocokan</a>
-        </li>
-        <li>
+        <li ' . $aktifUnggah . '>
         <a href="/plag/php/unggah/direk.php">Unggah</a>
         </li>
-        <li>
+        <li ' . $aktifCocok . '>
+        <a href="/plag/php/pencocokan/direk.php">Pencocokan</a>
+        </li>
+        <li ' . $aktifLihat . '>
         <a href="/plag/php/lihat/direk.php">Lihat Hasil</a>
         </li>
         </ul>';

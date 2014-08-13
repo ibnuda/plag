@@ -36,6 +36,7 @@
 <body>
 <?php
     session_start();
+    $_SESSION['ngapain'] = 'lihat';
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
         echo 'ini /plag/php/lihat/direk';

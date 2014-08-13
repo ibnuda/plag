@@ -36,6 +36,7 @@
 <body>
 <?php
 session_start();
+$_SESSION['ngapain'] = '';
 include './panel.php';
 /*
 if (isset($_SESSION['username'])) {

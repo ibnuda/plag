@@ -36,9 +36,11 @@
 <body>
 <?php
     session_start();
+    $_SESSION['ngapain'] = 'cocok';
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
         echo 'ini /plag/php/pencocokan/direk';
+        //include '';
     }
 ?>
 </body>

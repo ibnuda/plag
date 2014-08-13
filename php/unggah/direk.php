@@ -36,6 +36,7 @@
 <body>
 <?php
 session_start();
+$_SESSION['ngapain'] = 'unggah';
 include '../../panel.php';
 ?>
 <div class="container">
