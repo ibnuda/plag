@@ -17,7 +17,6 @@ echo 'tempat lihat unggahan folder';
             <?php
                 if (isset($_SESSION['username'])) {
                     $user = $_SESSION['username'];
-                    echo $user;
                     include_once '../lihat/lihatfolder.class.php';
                     $lihat = new lihatfolder();
                     echo $lihat->lihatIsi($user);

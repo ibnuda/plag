@@ -55,8 +55,7 @@ class Simpan
         $username = $this->sanitasiParameter($username);
         $password = $this->sanitasiParameter($password);
 
-        $kueri = 'insert into luser values ("' . $username .
-                 '", "' . $password . '", 0");';
+        $kueri = 'insert into luser values ("' . $username . '", "' . $password . '", 0);';
         $this->mysqli->query($kueri);
         if ($this->mysqli->affected_rows > 0) {
             return 'oke. berhasil daftar.';
