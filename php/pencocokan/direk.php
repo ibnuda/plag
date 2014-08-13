@@ -40,7 +40,17 @@
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
         echo 'ini /plag/php/pencocokan/direk';
+        /*
+        echo '<table class="table">
+				<thead> 
+                    <tr> <th> Kalimat (30 karakter pertama).  </th> <th> ID Skripsi </th> <th> Judul Skripsi </th> </tr>
+                </thead>
+                <tbody>';
+        include './kekeke.html';
+        echo '</tbody>
+            </table>';
         //include '';
+        */
     }
 ?>
 </body>

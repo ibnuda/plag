@@ -20,14 +20,18 @@ class lihatfolder
     {
         $kembalian = '';
         $hitungan = 1;
-        $kueri = 'select na_file, uk_file, ta_file from simpanan where na_user = "' . $user . '"';
+        $kueri = 'select na_file, uk_file, ta_file, st_cek from simpanan where na_user = "' . $user . '"';
         $hasil = $this->mysqli->query($kueri);
         while ($baris = $hasil->fetch_array()){
             $kembalian .= '<tr class=danger><td>' . $hitungan . '</td>' .
                           '<td>' . $baris['na_file'] . '</td> ' .
                           '<td>' . $baris['uk_file'] / 1024 . ' kb </td>' .
-                          '<td>' . $baris['ta_file'] . '</td>' .
-                          '<td> bentar </td></tr>';
+                          '<td>' . $baris['ta_file'] . '</td>'; 
+            if ($baris['st_cek'] == 0) {
+                $kembalian .= '<td><a href="../pencocokan/cocok.php?teks=">bandingkan</td></tr>';
+            } else {
+                $kembalian .= '<td> oke </td></tr>';
+            }
             $hitungan++;
         }
         return $kembalian;

@@ -3,7 +3,7 @@
 		<div class="col-md-12 column">
 			<div class="jumbotron">
 				<h1>
-                Hello, <?php echo $_SESSION['username']; ?> !!!!
+                Hello, <?php if (isset($_SESSION['username'])) echo $_SESSION['username']; else echo "World"; ?> !!!!
 				</h1>
 				<p>
 					This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
