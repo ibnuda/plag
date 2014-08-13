@@ -7,7 +7,7 @@ include_once '../conf/error_handler.php';
  * Class LihatFolder
  * @author John Doe
  */
-class lihatFolder
+class lihatfolder
 {
     private $mysqli;
 
@@ -19,18 +19,18 @@ class lihatFolder
     public function lihatIsi($user)
     {
         $kembalian = '';
+        $hitungan = 1;
         $kueri = 'select na_file, uk_file, ta_file from simpanan where na_user = "' . $user . '"';
-        /*
-        while ($hasil = $mysqli->query($kueri)) {
-            $kembalian .= '<tr class=danger><td>' . $hasil['na_file'] . '</td> ' .
-                          '<td>' . $hasil['uk_file'] . '</td>' .
-                          '<td>' . $hasil['ta_file'] . '</td>' .
+        $hasil = $this->mysqli->query($kueri);
+        while ($baris = $hasil->fetch_array()){
+            $kembalian .= '<tr class=danger><td>' . $hitungan . '</td>' .
+                          '<td>' . $baris['na_file'] . '</td> ' .
+                          '<td>' . $baris['uk_file'] / 1024 . ' kb </td>' .
+                          '<td>' . $baris['ta_file'] . '</td>' .
                           '<td> bentar </td></tr>';
+            $hitungan++;
         }
-        //$hasil = $this->mysqli->query($kueri);
-        //return $kembalian;
-         */
-        return $kueri;
+        return $kembalian;
     }
 
     public function __destruct()

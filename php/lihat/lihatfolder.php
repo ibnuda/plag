@@ -18,8 +18,8 @@ echo 'tempat lihat unggahan folder';
                 if (isset($_SESSION['username'])) {
                     $user = $_SESSION['username'];
                     echo $user;
-                    include_once './lihatfolder.class.php';
-                    $lihat = new lihatFolder();
+                    include_once '../lihat/lihatfolder.class.php';
+                    $lihat = new lihatfolder();
                     echo $lihat->lihatIsi($user);
                 }
             ?>

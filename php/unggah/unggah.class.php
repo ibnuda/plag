@@ -32,6 +32,7 @@ class Unggah
         $mime = $finf->buffer(file_get_contents($berkas));
     }
 
+    /*
     function cekUkur($berkas)
     {
         
@@ -43,5 +44,6 @@ class Unggah
     function simpanBerkas($berkas)
     {
     }
+     */
 }
 
