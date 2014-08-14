@@ -95,8 +95,8 @@ class Simpan
             $baris = $hasil4->fetch_array();
             $banyaksumber = $baris['jumlahsumber'];
         }
-        $kuerisimpan = 'insert into log nam_log, nam_fil, tan_fil, uku_fil, lam_cek, ' .
-                       'jum_cek, jum_cok, jum_sum, uku_sum, has_cek, nam_use ' .
+        $kuerisimpan = 'insert into log (nam_log, nam_fil, tan_fil, uku_fil, lam_cek, ' .
+                       'jum_cek, jum_cok, jum_sum, uku_sum, has_cek, nam_use)' .
                        ' values("' . 'cocok_' . $berkas . '", "' . $berkas . '", "' . 
                        date('Y-m-d H:i:s') .'", ' . $ukuranberkas . ', ' . $lama . ', ' .
                        $cek . ', ' . $cok . ', ' . $banyaksumber . ', "' . $ukurandatabase . 

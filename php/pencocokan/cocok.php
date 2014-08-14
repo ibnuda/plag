@@ -1,10 +1,11 @@
 <?php
+session_start();
 
 include_once './cocok.class.php';
 include_once '../koneksi/simpan.class.php';
 include_once '../koneksi/cumanredirek.class.php';
 
-//$user = $_SESSION['username'];
+$user = $_SESSION['username'];
 $teks = $_GET['teks'];
 $cocok = new Cocok();
 $simpan = new Simpan();
@@ -63,8 +64,9 @@ if ((sizeof($arraySimpanan)> 0) && $arrayHasil !== null) {
         echo 'lama pengecekan ' . $lamapengecekan . '</br>';
         echo 'nama berkas ' . $teks . '</br>';
         echo 'hasil pengecekan ' . $jumlahKalimatCok / $jumlahKalimatCek . '</br>';
-        $simpan->catatPencocokanUser($user, $berkas, $lamapengecekan, $jumlahKalimatCek, $jumlahKalimatCok, $persentase);
+        $simpan->catatPencocokanUser($user, $teks, $lamapengecekan, $jumlahKalimatCek, $jumlahKalimatCok, $persentase);
     }
+    $direk->cumanRedirek('/plag/pencocokan');
 }
 /*
 $berkas = 'kekeke.txt';
