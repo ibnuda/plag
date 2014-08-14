@@ -39,23 +39,23 @@ class lihatfolder
 
     public function lihatPencocokan($user)
     {
-        $kembalian = '';
+        $kembalian = null;
         $hitungan = 1;
-        $kueri = 'select nam_fil, tan_fil, jum_cek, jum_cok, jum_sum, has_cek from log where user ="' . $user .'";';
+        $kueri = 'select nam_fil, tan_fil, jum_cek, jum_cok, jum_sum, has_cek from log where nam_use ="' . $user .'";';
         $hasil = $this->mysqli->query($kueri);
         while ($baris = $hasil->fetch_array()) {
-            $kembalian = '<tr class=active><td>' . $hitungan . '</td>' .
-                         '<td>' . $baris['nam_fil'] . '</td>' .
-                         '<td>' . $baris['tan_fil'] . '</td>' .
-                         '<td>' . $baris['jum_cek'] . '</td>' .
-                         '<td>' . $baris['jum_cok'] . '</td>' .
-                         '<td>' . $baris['jum_sum'] . '</td>' .
-                         '<td>' . $baris['has_cek'] . '</td></tr>';
+            $kembalian .= '<tr class=active><td>' . $hitungan . '</td>' .
+                          '<td>' . $baris['nam_fil'] . '</td>' .
+                          '<td>' . $baris['tan_fil'] . '</td>' .
+                          '<td>' . $baris['jum_cek'] . '</td>' .
+                          '<td>' . $baris['jum_cok'] . '</td>' .
+                          '<td>' . $baris['jum_sum'] . '</td>' .
+                          '<td>' . $baris['has_cek'] . '</td></tr>';
         }
         if ($kembalian !== null) {
             return $kembalian;
         } else {
-            return '<tr><td>belum mencocokkan</td></tr>';
+            return '<tr><td></td><td>belum mencocokkan</td></tr>';
         }
     }
     

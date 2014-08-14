@@ -35,9 +35,10 @@ class Cocok
             }
             return '<tr class="danger"><td>' . $kalimat . '</td><td>' .
                    $baris['id_skrip'] . '</td><td>' . $baris['ju_skrip'] . '</td></tr>';
-        } else {
+        }/* 
+        else {
             return "<tr class='active'><td>" . $kalimat . "</td><td>null</td><td>null</td></tr>";
-        } 
+        }*/ 
     }
     
     public function sanitasiKalimat($kalimat)
@@ -65,15 +66,15 @@ class Cocok
     {
         $berkas = './hasilCocok/cocok_' . $namaBerkas;
         if (!$handle = fopen($berkas, 'a')) {
-            return 7;
+            return 2;
             exit;
         }
         if (fwrite($handle, $isiBerkas) === FALSE) {
             echo "Cannot write to file ($filename)";
-            return 8;
+            return 1;
             exit;
         }
-        return 9;
+        return 0;
     }
     
 }
