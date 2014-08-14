@@ -39,7 +39,8 @@
     $_SESSION['ngapain'] = 'cocok';
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
-        echo 'ini /plag/php/pencocokan/direk';
+        //echo 'ini /plag/php/pencocokan/direk';
+        include_once '../lihat/lihatCocok.php';
         /*
         echo '<table class="table">
 				<thead> 

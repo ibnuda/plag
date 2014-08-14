@@ -46,6 +46,30 @@ class Simpan
     }
 
     /**
+     * log.
+     * $user = user dalam sesi tersebut.
+     * $berkas = file yang dicocokan.
+     * no_log = no log.
+     * nam_log = nama hasil pencatatan.
+     * nam_fil = nama file yang dicocokkan.
+     * tan_fil = tanggal pencocokan.
+     * uku_fil = ukuran file yang dicocokkan.
+     * lam_cek = lama pencocokan.
+     * jum_cek = jumlah kalimat yang dicek.
+     * jum_cok = jumlah kalimat yang sesuai dengan sumber.
+     * jum_sum = jumlah sumber.
+     * uku_sum = besar sumber (dalam mb).
+     * has_cek = hasil pengecekan (dalam persen).
+     */
+    public function catatPencocokanUser($user, $berkas, $lama)
+    {
+        $kueri = 'update simpanan set st_cek = 1 where na_user="' . $user .
+                 '" and na_file="' . $berkas .'";';
+        $this->mysqli->query($kueri);
+    }
+    
+
+    /**
      * digunakan untuk daftar anggota baru.
      * parameter yang dibutuhkan adalah username dan password saja.
      * untuk saat ini.

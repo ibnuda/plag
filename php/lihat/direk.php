@@ -40,6 +40,7 @@
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
         echo 'ini /plag/php/lihat/direk';
+        //include './lihatCocok.php';
     }
 ?>
 </body>

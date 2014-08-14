@@ -2,9 +2,9 @@
 
 include_once './cocok.class.php';
 
-//$teks = $_GET['teks'];
+$teks = $_GET['teks'];
 //$teks = 'ibnu_qwer_2.txt';
-$teks = 'lele.txt';
+//$teks = 'lele.txt';
 $cocok = new Cocok();
 
 $arraySimpanan = $cocok->bukaBerkas($teks);

@@ -61,7 +61,7 @@ class Cocok
         return $kalimat;
     }
     
-    public function tulisBerkas($namaBerkas, $isiBerkas)
+    public function tulisBerkasCocok($namaBerkas, $isiBerkas)
     {
         $berkas = './hasilCocok/cocok_' . $namaBerkas;
         if (!$handle = fopen($berkas, 'a')) {

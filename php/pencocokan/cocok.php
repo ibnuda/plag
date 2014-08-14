@@ -2,8 +2,8 @@
 
 include_once './cocok.class.php';
 
-//$teks = $_GET['teks'];
-$teks = 'ibnu_qwer_2.txt';
+$teks = $_GET['teks'];
+//$teks = 'ibnu_qwer_2.txt';
 //$teks = 'lele.txt';
 $cocok = new Cocok();
 
@@ -18,7 +18,7 @@ for ($i = 0; $i < sizeof($arraySimpanan); $i++) {
 }
 
 if ((sizeof($arraySimpanan)> 0) && $hah !== null) {
-    $cocok->tulisBerkas($teks, $hah);
+    $cocok->tulisBerkasCocok($teks, $hah);
 }
 /*
 $berkas = 'kekeke.txt';
