@@ -64,7 +64,7 @@ class Cocok
     
     public function tulisBerkasCocok($namaBerkas, $isiBerkas)
     {
-        $berkas = './hasilCocok/cocok_' . $namaBerkas;
+        $berkas = './hasilCocok/cocok_' . $namaBerkas . '.php';
         if (!$handle = fopen($berkas, 'a')) {
             return 2;
             exit;

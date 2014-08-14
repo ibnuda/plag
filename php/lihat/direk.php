@@ -40,7 +40,31 @@
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
         echo 'ini /plag/php/lihat/direk';
-        //include './lihatCocok.php';
+        $parameter= $_GET['yangDiLihat'];
+        //include './lihatHasil.php?yangDiLihat=' . $parameter;
+        //include './lihatCocok.php'; 
+        echo '
+            <div class="container">
+                <div class="col-md-12 column">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <table class="table" id="cocok">
+                                <thead> 
+                                    <tr>
+                                        <th> Kalimat (60 Karakter pertama)  </th>
+                                        <th> ID Skripsi </th>
+                                        <th> Judul Skripsi </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="wowkakakwow">';
+        include '../pencocokan/hasilCocok/' . $parameter;
+        echo '
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
     }
 ?>
 </body>

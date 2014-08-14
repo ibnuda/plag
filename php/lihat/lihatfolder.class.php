@@ -50,7 +50,8 @@ class lihatfolder
                           '<td>' . $baris['jum_cek'] . '</td>' .
                           '<td>' . $baris['jum_cok'] . '</td>' .
                           '<td>' . $baris['jum_sum'] . '</td>' .
-                          '<td>' . $baris['has_cek'] . '</td></tr>';
+                          '<td>' . $baris['has_cek'] . '</td>' .
+                          '<td><a href="../lihat/direk.php?yangDiLihat=cocok_' . $baris['nam_fil'] . '.php">Lihat</a></td></tr>';
         }
         if ($kembalian !== null) {
             return $kembalian;

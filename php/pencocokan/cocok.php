@@ -66,7 +66,8 @@ if ((sizeof($arraySimpanan)> 0) && $arrayHasil !== null) {
         echo 'hasil pengecekan ' . $jumlahKalimatCok / $jumlahKalimatCek . '</br>';
         $simpan->catatPencocokanUser($user, $teks, $lamapengecekan, $jumlahKalimatCek, $jumlahKalimatCok, $persentase);
     }
-    $direk->cumanRedirek('/plag/pencocokan');
+    $direk->cumanRedirek('/plag/pencocokan/');
+    exit();
 }
 /*
 $berkas = 'kekeke.txt';
