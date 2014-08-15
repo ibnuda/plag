@@ -20,6 +20,7 @@ $jumlahKalimatCek = sizeof($arraySimpanan);
 $errortulis = 9;
 $waktumulai = microtime(true);
 for ($i = 0; $i < sizeof($arraySimpanan); $i++) {
+    echo 'isi ' . $i . '<br>';
     if (strlen($arraySimpanan[$i]) > 30) {
         //$arrayHasil .= $cocok->pencocokan($arraySimpanan[$i]);
         $sementara = $cocok->pencocokan($arraySimpanan[$i]);

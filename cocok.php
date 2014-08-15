@@ -24,6 +24,9 @@ for ($i = 0; $i < sizeof($arraySimpanan); $i++) {
         //$arrayHasil .= $cocok->pencocokan($arraySimpanan[$i]);
         $sementara = $cocok->pencocokan($arraySimpanan[$i]);
         if ($sementara !== null){
+            echo '<script>';
+                    
+            echo '</script>';
             $arrayHasil .= $sementara;
             $jumlahKalimatCok++;
         } else {

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress Test</title>
+
+    <script language="javascript">
+
+    function mulai()
+    {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "mulaihitung.php", true);
+        interval = window.setInterval( function () {
+            update();
+        }, 200);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4) {
+                window.clearInterval(interval);
+                document.getElementById("tempatstatus").innerHTML = "selesai.";
+            }
+        }
+        xhr.send();
+    }
+
+    function update()
+    {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("updateme").innerHTML = xhr.responseText;
+            }
+        }
+        xhr.open("GET", "updatehitungan.php", true);
+        xhr.send();
+    }
+
+    </script>
+
+</head>
+
+<body>
+
+    <form>
+        <input type="button" onclick="mulai()" value="mulai!" />
+    </form>
+
+    <h3>AJAX update test</h3>
+
+    <h4 id="tempatstatus"></h4>
+
+</body>
+</html>
