@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Progress Test</title>
+    <title></title>
 
     <script language="javascript">
 
@@ -9,27 +9,31 @@
     {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "mulaihitung.php", true);
-        interval = window.setInterval( function () {
-            update();
+        jeda = window.setInterval( function () {
+            ganti();
         }, 200);
         xhr.onreadystatechange = function () {
             if(xhr.readyState == 4) {
-                window.clearInterval(interval);
+                window.clearInterval(jeda);
+                /*
+                 *
+                 * 
+                 */
                 document.getElementById("tempatstatus").innerHTML = "selesai.";
             }
         }
         xhr.send();
     }
 
-    function update()
+    function ganti()
     {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if(xhr.readyState == 4 && xhr.status == 200) {
-                document.getElementById("updateme").innerHTML = xhr.responseText;
+                document.getElementById("tempatstatus").innerHTML = xhr.responseText;
             }
         }
-        xhr.open("GET", "updatehitungan.php", true);
+        xhr.open("GET", "updatehitung.php", true);
         xhr.send();
     }
 
@@ -43,7 +47,7 @@
         <input type="button" onclick="mulai()" value="mulai!" />
     </form>
 
-    <h3>AJAX update test</h3>
+    <h3>cek cek cek</h3>
 
     <h4 id="tempatstatus"></h4>
 
