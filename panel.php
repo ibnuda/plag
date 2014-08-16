@@ -33,6 +33,7 @@ if (isset( $_SESSION['username'])) {
             
             break;
     }
+    /*
     echo '
         <ul class="nav navbar-nav">
         <li ' . $aktifUnggah . '>
@@ -45,7 +46,21 @@ if (isset( $_SESSION['username'])) {
         <a href="/plag/php/lihat/direk.php">Lihat Hasil</a>
         </li>
         </ul>';
+     */
+    echo '
+        <ul class="nav navbar-nav">
+        <li ' . $aktifUnggah . '>
+        <a href="/plag/php/unggah/index.php">Unggah</a>
+        </li>
+        <li ' . $aktifCocok . '>
+        <a href="/plag/php/pencocokan/index.php">Pencocokan</a>
+        </li>
+        <li ' . $aktifLihat . '>
+        <a href="/plag/php/lihat/index.php">Lihat Hasil</a>
+        </li>
+        </ul>';
 }
+/*
 echo '
 <form class="navbar-form navbar-left" role="search">
 <div class="form-group">
@@ -53,7 +68,10 @@ echo '
 </div> <button type="submit" class="btn btn-default">Submit</button>
 </form>
 <ul class="nav navbar-nav navbar-right">';
-
+*/
+echo '
+    </form>
+    <ul class="nav navbar-nav navbar-right">';
 if (!isset( $_SESSION['username'])) {
     echo '
         <li>

@@ -24,13 +24,19 @@ class lihatfolder
         $hasil = $this->mysqli->query($kueri);
         while ($baris = $hasil->fetch_array()){
             $kembalian .= '<tr class=active><td>' . $hitungan . '</td>' .
+                          //'<td id="' . $baris['na_file'] .'">' . $baris['na_file'] . '</td> ' .
+                          //'<td id="' . $baris['na_file'] .'">' . $baris['na_file'] . '</td> ' .
                           '<td>' . $baris['na_file'] . '</td> ' .
                           '<td>' . $baris['uk_file'] / 1024 . ' kb </td>' .
                           '<td>' . $baris['ta_file'] . '</td>'; 
             if ($baris['st_cek'] == 0) {
-                $kembalian .= '<td><a href="../pencocokan/cocok.php?teks=' . $baris['na_file'] . '">bandingkan</a></td></tr>';
+                //$kembalian .= '<td><a href="../pencocokan/cocok.php?teks=' . $baris['na_file'] . '">bandingkan</a></td></tr>';
+                $nama_berkas = substr($baris['na_file'], 0, -4);
+                $kembalian .= '<td><input type="button" onclick="mulai(\'' . $nama_berkas . '\')" value="Cocokkan" /></td></td>';
             } else {
-                $kembalian .= '<td> rencananya akan pindah ke tab lihat. </td></tr>';
+                //$kembalian .= '<td> rencananya akan pindah ke tab lihat. </td></tr>';
+                $nama_berkas = substr($baris['na_file'], 0, -4);
+                $kembalian .= '<td><input type="button" onclick="mulai(\'' . $nama_berkas . '\')" value="Cocokkan" /></td></td>';
             }
             $hitungan++;
         }
@@ -51,7 +57,13 @@ class lihatfolder
                           '<td>' . $baris['jum_cok'] . '</td>' .
                           '<td>' . $baris['jum_sum'] . '</td>' .
                           '<td>' . $baris['has_cek'] . '</td>' .
-                          '<td><a href="../lihat/direk.php?yangDiLihat=cocok_' . $baris['nam_fil'] . '.php">Lihat</a></td></tr>';
+                          /*
+                          '<td><a href="../lihat/index.php?yangDiLihat=cocok_' . $baris['nam_fil'] . '.php">Lihat</a></td></tr>';
+                           */
+                          //'<input type="button" onclick="mulai(' . $baris['nama_fil'] . ')" value="mulai!" />';
+                          '<td><a href="../lihat/index.php?yangDiLihat=cocok_' . $baris['nam_fil'] . '.php">Lihat</a></td></tr>';
+
+            $hitungan++;
         }
         if ($kembalian !== null) {
             return $kembalian;

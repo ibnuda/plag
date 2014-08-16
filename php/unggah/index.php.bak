@@ -1,0 +1,12 @@
+<?php
+require_once '/plag/php/user/login.class.php';
+session_start();
+$login = new Login();
+if (!isset( $_SESSION['username'])) {
+    $login->redirek('/plag');
+    include_once './direk.php';
+} else {
+    $_SESSION['ngapain'] = "cocok";
+    $login->redirek('/plag');
+}
+?>

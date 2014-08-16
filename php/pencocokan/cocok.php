@@ -1,11 +1,10 @@
 <?php
-session_start();
+//session_start();
 
 include_once './cocok.class.php';
 include_once '../koneksi/simpan.class.php';
 include_once '../koneksi/cumanredirek.class.php';
 
-$user = $_SESSION['username'];
 $teks = $_GET['teks'];
 $cocok = new Cocok();
 $simpan = new Simpan();
@@ -20,17 +19,24 @@ $jumlahKalimatCek = sizeof($arraySimpanan);
 $errortulis = 9;
 $waktumulai = microtime(true);
 for ($i = 0; $i < sizeof($arraySimpanan); $i++) {
-    echo 'isi ' . $i . '<br>';
+    session_start();
+    $user = $_SESSION['username'];
+    if(!isset($_SESSION['progres'])) {
+        $_SESSION['progres'] = $i;
+        $_SESSION['akhir'] = $jumlahKalimatCek;
+    }
     if (strlen($arraySimpanan[$i]) > 30) {
-        //$arrayHasil .= $cocok->pencocokan($arraySimpanan[$i]);
         $sementara = $cocok->pencocokan($arraySimpanan[$i]);
         if ($sementara !== null){
             $arrayHasil .= $sementara;
             $jumlahKalimatCok++;
         } else {
-            $arrayHasil .= "<tr class='active'><td>" . $arraySimpanan[$i] . "</td><td>null</td><td>null</td></tr>";
+            $arrayHasil .= "<tr class='active'><td>" . $arraySimpanan[$i] . "</td><td>Kosong</td><td>N/A</td></tr>";
         }
     }
+    $_SESSION['progres'] = $i;
+    session_write_close(); 
+    header_remove();
 }
 $waktuakhir = microtime(true);
 

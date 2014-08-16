@@ -25,7 +25,7 @@ if (isset( $_SESSION['username'])) {
         $namaBerkas = $unggah->ambilNamaberkasTersimpan($user, $berkas, $jumlah + 1);
         $simpan->catatBerkasUser($user, $namaBerkas, $ukuranBerkas);
         // balik lagi
-        $redire->redirek('/plag/php/unggah/direk.php');
+        $redire->redirek('/plag/php/unggah/index.php');
     }
 }
 ?>
