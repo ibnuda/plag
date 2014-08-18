@@ -1,9 +1,9 @@
-<?php
-echo '<h1>ngahahahaha</h1>';
-echo 'tempat lihat unggahan folder';
-echo '<div id="tempatProgres"></div>';
-?>
 <div class="col-md-8 column">
+    <?php
+    //echo '<h1>ngahahahaha</h1>';
+    //echo 'tempat lihat unggahan folder';
+    echo '<div id="tempatProgres">Progress Pencocokan (Jika Berlangsung)</div>';
+    ?>
     <table class="table" id="initabel">
         <thead> 
             <tr>
