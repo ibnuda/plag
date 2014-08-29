@@ -33,10 +33,14 @@ class lihatfolder
                 //$kembalian .= '<td><a href="../pencocokan/cocok.php?teks=' . $baris['na_file'] . '">bandingkan</a></td></tr>';
                 $nama_berkas = substr($baris['na_file'], 0, -4);
                 $kembalian .= '<td><input type="button" onclick="mulai(\'' . $nama_berkas . '\')" value="Cocokkan" /></td></td>';
+                //$kembalian .= '<td><input type="button" onclick="mulaiOSS(\'' . $nama_berkas . '\')" value="OSS" /></td></td>';
+                $kembalian .= '<td><input type="button" onclick="location.href = \'../oss/index.php?yangDicari=' . $nama_berkas . '\';" id="myButton" value="Cek OSS"></td>';
             } else {
                 //$kembalian .= '<td> rencananya akan pindah ke tab lihat. </td></tr>';
                 $nama_berkas = substr($baris['na_file'], 0, -4);
                 $kembalian .= '<td><input type="button" onclick="mulai(\'' . $nama_berkas . '\')" value="Cocokkan" /></td></td>';
+                $kembalian .= '<td><input type="button" onclick="location.href = \'../oss/index.php?yangDicari=' . $nama_berkas . '\';" id="myButton" value="Cek OSS"></td>';
+                //$kembalian .= '<td><input type="button" onclick="mulaiOSS(\'' . $nama_berkas . '\')" value="OSS" /></td></td>';
             }
             $hitungan++;
         }

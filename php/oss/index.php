@@ -5,9 +5,14 @@
     <title></title>
 </head>
 <body>
-    <form action="cari.php" method="post">
+    <!--form action="cari.php" method="post">
         <input type="text" name="yangDicari" id="yangDicari"><br>
         <input type="submit">
-    </form>
+    </form-->
+        <?php
+        
+        $teksnya = $_GET['yangDicari'];
+        echo $teksnya;
+        ?>
 </body>
 </html>

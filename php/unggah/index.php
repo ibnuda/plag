@@ -84,7 +84,6 @@ include '../../panel.php';
                     } else {
                         include '/plag/php/sedikit.php';
                     }
-
                 ?>
             </div>
 		</div>

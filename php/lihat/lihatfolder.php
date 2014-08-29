@@ -12,6 +12,7 @@
                 <th> Ukuran Berkas </th>
                 <th> Waktu Unggah Berkas </th>
                 <th> Periksa </th>
+                <th> Periksa OSS </th>
             </tr>
         </thead>
         <tbody id="are">
