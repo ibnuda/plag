@@ -24,17 +24,19 @@ $oss_search = new OssSearch($oss_url, $oss_index, '', '', $oss_login, $oss_key);
  * pencarian dengan kueri.
 $kueri = 'Penelitian ini merupakan penelitian yang bersifat pengujian hipotesis dengan menggunakan metode survei';
  */
-$kueri = $_POST['yangDicari'];
-$xmlResult = $oss_search->query($kueri)->lang('en')->template('ceksound')->rows(10)->execute(50);
+//$kueri = $_POST['yangDicari'];
+$kueri = 'Penelitian ini merupakan penelitian yang bersifat pengujian hipotesis dengan menggunakan metode survei';
+$xmlResult = $oss_search->query($kueri)->lang('en')->template('search')->rows(10)->execute(50);
 $oss_result = new OssResults($xmlResult);
+var_dump($oss_result);
 $jumlahhasil = $oss_result->getResultRows(); 
 
 /**
  * cetak hasil.
  */
 print '<ul>';
-for ($i = 0; $i < $jumlahhasil; $i++) {
-//for ($i = 0; $i < 3; $i++) {
+//for ($i = 0; $i < $jumlahhasil; $i++) {
+for ($i = 0; $i < 3; $i++) {
   $link = $oss_result->getField($i, 'uri');
   $konten = $oss_result->getField($i, 'content', true, true, null, true);
   print '<li>' . $link . '<br> - <em>' . $konten . '</em></li><br>';
