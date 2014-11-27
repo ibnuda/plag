@@ -24,6 +24,7 @@ echo 'tempat lihat unggahan folder';
                                 <th>Jumlah Kalimat Sama</th>
                                 <th>Jumlah Sumber</th>
                                 <th>Persentase</th>
+                                <th>Lihat</th>
                             </tr>
                         </thead>
                         <tbody id="are">

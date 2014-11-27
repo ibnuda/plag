@@ -1,0 +1,11 @@
+.baten {
+  display: block;
+  width: 90px;
+  
+  background: #4E9CAF;
+  
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}

@@ -1,6 +1,6 @@
 <?php
 
 define('host', 'localhost');
-define('user', 'cek');
-define('pass', 'cek');
+define('user', 'root');
+define('pass', '');
 define('debe', 'artikel');

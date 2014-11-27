@@ -17,6 +17,12 @@ if (isset($_POST['nama']) && isset($_POST['word'])) {
     $nama = $_POST['nama'];
     $word = $_POST['word'];
 
-    $simpan->daftarBaru($nama, $word);
+    $hasil = $simpan->daftarBaru($nama, $word);
+    if ($hasil === "oke") {
+    	$login->redirek('/plag');
+    } else {
+    	$login->redirek('/plag/php/user/daftar.php');
+    }
+    
     $login->redirek('/plag/');
 }

@@ -18,8 +18,8 @@ class Login
 
     public function cekLogin($nama, $word)
     {
-        $kueri = 'select nama, word from luser where nama="' . $nama .
-                 '" and word="' . $word . '"';
+        $kueri = 'select nama, pass from user where nama="' . $nama .
+                 '" and pass="' . $word . '"';
 
         $hasil = $this->mMysqli->query($kueri);
         $masuk = $hasil->num_rows;

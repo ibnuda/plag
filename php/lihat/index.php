@@ -41,9 +41,11 @@
     include '../../panel.php';
     if (isset( $_SESSION['username'])) {
         //echo 'ini /plag/php/lihat/direk';
-        $parameter= $_GET['yangDiLihat'];
+        //$parameter= $_GET['yangDiLihat'];
+        $id_log = $_GET['asdf'];
         //include './lihatHasil.php?yangDiLihat=' . $parameter;
         //include './lihatCocok.php'; 
+        /*
         echo '
             <div class="container">
                 <div class="col-md-12 column">
@@ -58,7 +60,10 @@
                                     </tr>
                                 </thead>
                                 <tbody id="wowkakakwow">';
-        include '../pencocokan/hasilCocok/' . $parameter;
+                                */
+        //include '../pencocokan/hasilCocok/' . $parameter;
+        include_once './lihatHasil.php';// . $id_log;
+        /*
         echo '
                                     </tbody>
                                 </table>
@@ -66,6 +71,7 @@
                         </div>
                     </div>
                 </div>';
+                */
     }
 ?>
 </body>

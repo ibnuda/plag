@@ -1,5 +1,4 @@
 <?php
-//session_start();
 
 include_once './cocok.class.php';
 include_once '../koneksi/simpan.class.php';
@@ -11,6 +10,10 @@ $simpan = new Simpan();
 $direk = new cumanRedirek();
 
 $arraySimpanan = $cocok->bukaBerkas($teks);
+
+print_r($arraySimpanan);
+
+/*
 $arrayHasil = '';
 $jumlahKalimatCek = 0;
 $jumlahKalimatCok = 0;
@@ -53,7 +56,6 @@ $waktuakhir = microtime(true);
  * jum_cok = jumlah kalimat yang sesuai dengan sumber.
  * jum_sum = jumlah sumber.
  * has_cek = hasil pengecekan (dalam persen).
- */
 
 $lamapengecekan = $waktuakhir - $waktumulai;
 $persentase = $jumlahKalimatCok / $jumlahKalimatCek;

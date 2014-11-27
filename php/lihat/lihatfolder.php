@@ -3,6 +3,11 @@
     //echo '<h1>ngahahahaha</h1>';
     //echo 'tempat lihat unggahan folder';
     echo '<div id="tempatProgres">Progress Pencocokan (Jika Berlangsung)</div>';
+    //print_r($_SESSION['ngekek']);
+    //print_r($_SESSION['lemper']);
+    //$keke = $_SESSION['ngekek']['tmp_name'];
+    //$gede = $_SESSION['ngekek']['size'];
+    //echo $gede . '<br>' . $keke;
     ?>
     <table class="table" id="initabel">
         <thead> 

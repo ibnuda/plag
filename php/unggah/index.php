@@ -38,7 +38,8 @@
     {
         var xhr = new XMLHttpRequest();
         var teks = "teks=" + idYangDicari + ".txt";
-        xhr.open("GET", "/plag/php/pencocokan/cocok.php?" + teks, true);
+        //xhr.open("GET", "/plag/php/pencocokan/cocok.php?" + teks, true);
+        xhr.open("GET", "/plag/php/pencocokan/cocok2.php?" + teks, true);
         jeda = window.setInterval( function () {
             ganti();
         }, 200);
@@ -46,6 +47,7 @@
             if(xhr.readyState == 4) {
                 window.clearInterval(jeda);
                 document.getElementById("tempatProgres").innerHTML = "selesai.";
+                xhr.open("GET", "/plag/php/pencocokan/test.php");
             }
         }
         xhr.send();
@@ -77,12 +79,12 @@ include '../../panel.php';
             <div class="row clearfix">
                 <?php
                     if (isset( $_SESSION['username'])) {
-                        include_once '/plag/php/unggah/unggah.class.php';
+                        include_once './unggah.class.php';
                         include_once './unggah.php';
                         include_once '../lihat/lihatfolder.php';
                         //echo 'ini /plag/php/unggah/direk';
                     } else {
-                        include '/plag/php/sedikit.php';
+                        include '../../php/sedikit.php';
                     }
 
                 ?>
