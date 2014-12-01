@@ -58,8 +58,13 @@ if (isset( $_SESSION['username'])) {
         </li>
         <li ' . $aktifLihat . '>
         <a href="/plag/php/lihat/index.php">Lihat Hasil</a>
-        </li>
-        </ul>';
+        </li>';
+
+    if ($_SESSION['username'] === "admin") {
+        echo '<li><a href="/plag/php/user/daftar.php">Daftar Anggota Baru</a></li>';
+    } 
+    
+    echo '</ul>';
 }
 /*
 echo '
@@ -77,10 +82,11 @@ if (!isset( $_SESSION['username'])) {
     echo '
         <li>
             <a href="/plag/php/user/login.php">Login</a>
-        </li>
+        </li>';
+        /*
         <li>
             <a href="/plag/php/user/daftar.php">Daftar</a>
-        </li>';
+        </li>';*/
 } else {
     echo '
         <li>

@@ -29,10 +29,18 @@ class lihatfolder
         }
         //echo $id_user;
 
-        $kueri1 = 'select berkas.nama_file, penyimpanan.id_file, tanggal_unggah, ' .
-                  'status_cek, ukuran_file from user, penyimpanan, berkas where ' .
-                  'penyimpanan.id_user=' . $id_user . ' and ' .
-                  'penyimpanan.id_file = berkas.id_file and user.id_user = penyimpanan.id_user';
+        if ($id_user == 5) {
+          $kueri1 = 'select berkas.nama_file, penyimpanan.id_file, tanggal_unggah, ' .
+                    'status_cek, ukuran_file from user, penyimpanan, berkas where ' .
+                    ' 1 = 1 and ' .
+                    'penyimpanan.id_file = berkas.id_file and user.id_user = penyimpanan.id_user';
+        } else {
+          $kueri1 = 'select berkas.nama_file, penyimpanan.id_file, tanggal_unggah, ' .
+                    'status_cek, ukuran_file from user, penyimpanan, berkas where ' .
+                    'penyimpanan.id_user=' . $id_user . ' and ' .
+                    'penyimpanan.id_file = berkas.id_file and user.id_user = penyimpanan.id_user';
+        }
+        
 
         //$kueri1 = 'select id_file, na_file, tanggal_unggah, status_cek from penyimpanan where id_user =' . $id_user . '" and penyimpanan.id_file=berkas.id_file";';
 
@@ -70,7 +78,13 @@ class lihatfolder
           $id_user = $baris['id_user'];
         }
 
-        $kueri = 'select distinct(id_log), id_file, waktu_pengecekan, waktu_pengecekan, jumlah_cek, jumlah_cocok, jumlah_sumber, persentase from log where id_log like "' . $id_user . '%"';
+        if ($id_user == 5) {
+          $kueri = 'select distinct(id_log), id_file, waktu_pengecekan, waktu_pengecekan, jumlah_cek, jumlah_cocok, jumlah_sumber, persentase from log where 1 = 1';
+        } else {
+          $kueri = 'select distinct(id_log), id_file, waktu_pengecekan, waktu_pengecekan, jumlah_cek, jumlah_cocok, jumlah_sumber, persentase from log where id_log like "' . $id_user . '%"';
+          # code...
+        }
+        
         $hasil = $this->mysqli->query($kueri);
 
         while ($baris = $hasil->fetch_array()) {
