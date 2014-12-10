@@ -79,8 +79,13 @@ include '../../panel.php';
             <div class="row clearfix">
                 <?php
                     if (isset( $_SESSION['username'])) {
-                        include_once './unggah.class.php';
-                        include_once './unggah.php';
+                        if ($_SESSION['username'] !== "admin") {
+                            include_once './unggah.class.php';
+                            include_once './unggah.php';
+                        } else {
+                            echo '<div class="col-md-4 column"><br><br><br>Maaf, administrator tidak dapat mengunggah</div>';
+                        }
+                        
                         include_once '../lihat/lihatfolder.php';
                         //echo 'ini /plag/php/unggah/direk';
                     } else {

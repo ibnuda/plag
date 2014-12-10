@@ -19,12 +19,16 @@
                         <div class="col-md-4 column">
                             <form role="form" name="formDaftar" method="post" action="./daftaranggota.php">
                                 <div class="form-group">
-                                    <label for="username">Nama</label>
+                                    <label for="username">Nama Pengguna</label>
                                     <input name="nama" class="form-control" id="username" type="text" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Pass</label>
+                                    <label for="password">Password</label>
                                     <input name="word" class="form-control" id="password" type="password" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-konf">Konfirmasi Password</label>
+                                    <input name="word-konf" class="form-control" id="password-konf" type="password" />
                                 </div>
                                 <button type="submit" class="btn btn-default">Daftar</button>
                             </form>
